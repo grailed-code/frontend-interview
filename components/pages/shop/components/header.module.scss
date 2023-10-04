@@ -1,0 +1,37 @@
+.container {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-color: rgb(229 231 235);
+  padding-bottom: 1.5rem;
+  padding-top: 6rem;
+
+  h1 {
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.filterBtn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  margin-left: 1rem;
+  display: block;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
