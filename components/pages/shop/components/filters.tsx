@@ -1,75 +1,29 @@
-import ExpandableSection from './expandable-section';
+import { FilterOptions } from "@/types";
+import { uppercase } from "@/lib/utils";
 
-import styles from './filters.module.scss';
+import ExpandableSection from "./expandable-section";
 
-const categories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-];
+import styles from "./filters.module.scss";
 
-const filters = [
-  {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
-    ],
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
-];
+type FiltersProps = {
+  filterOptions: FilterOptions;
+};
 
-function Filters() {
+function Filters({ filterOptions }: FiltersProps) {
   return (
-    <section>
-      <ul className={styles.categories}>
-        {categories.map((category) => (
-          <li>
-            <a href={category.href}>{category.name}</a>
-          </li>
-        ))}
-      </ul>
-      {filters.map((filter) => (
-        <ExpandableSection label={filter.name}>
-          {filter.options.map((option, i) => (
-            <div className={styles.filter}>
+    <section className={styles.container}>
+      {Object.entries(filterOptions).map(([filterName, options]) => (
+        <ExpandableSection key={filterName} label={uppercase(filterName)}>
+          {options.map((option, i) => (
+            <div key={option} className={styles.filter}>
               <input
-                id={`filter-${filter.id}-${i}`}
-                name={`${filter.id}[]`}
-                defaultValue={option.value}
+                id={`filter-${filterName}-${i}`}
+                name={`${filterName}[]`}
+                defaultValue={option}
                 type="checkbox"
-                defaultChecked={option.checked}
+                defaultChecked={false}
               />
-              <label htmlFor={`${filter.id}[]`}>{option.label}</label>
+              <label htmlFor={`${filterName}[]`}>{uppercase(option)}</label>
             </div>
           ))}
         </ExpandableSection>
