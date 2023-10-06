@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { generateFakeProduct } from "@/lib/utils/generateFakeProduct";
 
-import { Product, Sort, Filter, Category } from "@/types";
+import { Sort, Category, ProductsResponseData } from "@/types";
 import { products as rawProducts } from "@/data";
 
 const products = rawProducts

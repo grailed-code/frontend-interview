@@ -2,14 +2,6 @@ import { FilterIcon } from "lucide-react";
 
 import SortDropdown from "./sort-dropdown";
 
-const sortOptions = [
-  { label: "Most Popular", href: "#", current: true },
-  { label: "Best Rating", href: "#", current: false },
-  { label: "Newest", href: "#", current: false },
-  { label: "Price: Low to High", href: "#", current: false },
-  { label: "Price: High to Low", href: "#", current: false },
-];
-
 import styles from "./header.module.scss";
 
 function Header() {
@@ -17,7 +9,7 @@ function Header() {
     <div className={styles.container}>
       <h1>Shop</h1>
       <div className={styles.controls}>
-        <SortDropdown sortOptions={sortOptions} />
+        <SortDropdown />
         <button className={styles.filterBtn}>
           <FilterIcon
             size={20}

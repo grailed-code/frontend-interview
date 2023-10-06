@@ -20,7 +20,6 @@ function Product({ product }: ProductProps) {
         </h3>
         <p className={styles.designer}>{product.designer}</p>
         <div className={styles.details}>
-          {/* <p className="text-sm italic text-gray-500">{product.options}</p> */}
           <p className={styles.price}>${product.price}</p>
         </div>
       </div>

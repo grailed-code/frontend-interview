@@ -12,8 +12,6 @@ function ShopPage() {
   const [products, setProducts] = useState<Product[]>();
   const [filters, setFilters] = useState<ProductsResponseData["filters"]>();
 
-  console.log(filters);
-
   useEffect(() => {
     const fetchProducts = async () => {
       const p = await getProducts();

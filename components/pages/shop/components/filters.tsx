@@ -23,7 +23,9 @@ function Filters({ filterOptions }: FiltersProps) {
                 type="checkbox"
                 defaultChecked={false}
               />
-              <label htmlFor={`${filterName}[]`}>{uppercase(option)}</label>
+              <label htmlFor={`filter-${filterName}-${i}`}>
+                {uppercase(option)}
+              </label>
             </div>
           ))}
         </ExpandableSection>

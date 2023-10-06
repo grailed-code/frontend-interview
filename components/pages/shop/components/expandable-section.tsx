@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { PlusIcon, MinusIcon } from 'lucide-react';
+import { useState } from "react";
+import { PlusIcon, MinusIcon } from "lucide-react";
 
-import styles from './expandable-section.module.scss';
+import styles from "./expandable-section.module.scss";
 
 type ExpandableSectionProps = {
   label: string;
@@ -18,7 +18,11 @@ function ExpandableSection({ children, label }: ExpandableSectionProps) {
           onClick={() => setOpen((prev) => !prev)}
         >
           <span>{label}</span>
-          {open ? <MinusIcon size={20} /> : <PlusIcon size={20} />}
+          {open ? (
+            <MinusIcon size={20} data-testid="minus-icon" />
+          ) : (
+            <PlusIcon size={20} data-testid="plus-icon" />
+          )}
         </button>
       </h3>
       {open ? <div className={styles.content}>{children}</div> : null}
