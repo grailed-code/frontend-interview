@@ -1,0 +1,77 @@
+@layer base {
+  :root {
+
+    /* Sizes */
+    --base-size: 1rem;
+    --size-1: calc(0.25 * var(--base-size));
+    --size-2: calc(0.5 * var(--base-size));
+    --size-3: calc(0.75 * var(--base-size));
+    --size-4: calc(1 * var(--base-size));
+    --size-5: calc(1.25 * var(--base-size));
+    --size-6: calc(1.5 * var(--base-size));
+    --size-7: calc(1.75 * var(--base-size));
+    --size-8: calc(2 * var(--base-size));
+    --size-9: calc(2.25 * var(--base-size));
+    --size-10: calc(2.5 * var(--base-size));
+    --size-11: calc(2.75 * var(--base-size));
+    --size-12: calc(3 * var(--base-size));
+
+
+    /* Colors */
+    --background: 255, 255, 255;
+    --foreground: 13, 14, 15;
+    --card: 255, 255, 255;
+    --card-foreground: 13, 14, 15;
+    --popover: 255, 255, 255;
+    --popover-foreground: 13, 14, 15;
+    --primary: 51, 102, 204;
+    --primary-foreground: 252, 248, 250;
+    --secondary: 250, 245, 248;
+    --secondary-foreground: 29, 30, 31;
+    --muted: 250, 245, 248;
+    --muted-foreground: 120, 121, 122;
+    --accent: 250, 245, 248;
+    --accent-foreground: 29, 30, 31;
+    --destructive: 255, 153, 153;
+    --destructive-foreground: 252, 248, 250;
+    --border: 235, 234, 237;
+    --input: 235, 234, 237;
+    --ring: 51, 102, 204;
+
+    /* Borders */
+    --border-radius: 0.5rem;
+    --border-width: 1px;
+    --border-color: var(--border);
+    --border-value: var(--border-width) solid rgb(var(--border-color));
+
+    /* Shadows */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, .1),
+        0 2px 4px -2px rgba(0, 0, 0, .1);
+
+    /* Font families. */
+    --font-family-sans: 'Inter', sans-serif;
+
+    /* Font sizes. */
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 3rem;
+
+    /* Line heights. */
+    --line-height-sm: 1.25;
+    --line-height-md: 1.5;
+    --line-height-lg: 1.75;
+    --line-height-xl: 2;
+    --line-height-2xl: 2.25;
+    --line-height-3xl: 2.5;
+
+    /* Font weights. */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+  }
+}

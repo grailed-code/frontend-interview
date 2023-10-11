@@ -1,41 +1,28 @@
 .container {
-  border-width: 0;
-  border-style: solid;
-  border-bottom-width: 1px;
-  border-color: rgb(229 231 235);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  border: 0;
+  border-bottom: var(--border-value);
+  padding-top: var(--size-3);
+  padding-bottom: var(--size-3);
 }
 
 .trigger {
-  border-width: 0;
-  border-style: solid;
-  border-color: #e5e7eb;
-  font-family: inherit;
-  font-weight: inherit;
   margin: 0;
   padding: 0;
-  text-transform: none;
   cursor: pointer;
-  background-image: none;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(255 255 255);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: rgb(156 163 175);
+  padding-top: var(--size-3);
+  padding-bottom: var(--size-3);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  background-color: rgb(var(--background));
   span {
-    color: rgb(17 24 39);
+    color: rgb(var(--foreground));
   }
 }
 
 .content {
-  border-width: 0;
-  border-style: solid;
-  border-color: #e5e7eb;
-  padding-top: 1.5rem;
+  padding-top: var(--size-6);
 }

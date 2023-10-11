@@ -1,5 +1,5 @@
 .container {
-  margin-top: 1.5rem;
+  margin-top: var(--size-6);
 
   @media (min-width: 1024px) {
     margin-top: 0;
@@ -13,16 +13,16 @@
 .products {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  row-gap: 1rem;
+  row-gap: var(--size-4);
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 1.5rem;
-    row-gap: 2.5rem;
+    column-gap: var(--size-6);
+    row-gap: var(--size-10);
   }
 
   @media (min-width: 1024px) {
-    column-gap: 2rem;
+    column-gap: var(--size-8);
   }
   @media (min-width: 1280px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -34,11 +34,9 @@
   overflow: hidden;
   position: relative;
   flex-direction: column;
-  border-radius: 0.5rem;
-  border-width: 1px;
-  border-color: #e5e7eb;
-  border-style: solid;
-  background-color: #ffffff;
+  border-radius: var(--boder-radius);
+  border: var(--border-value);
+  background-color: rgb(var(--background));
   &:hover {
     .image {
       opacity: 0.75;
@@ -47,7 +45,7 @@
 }
 
 .image {
-  background-color: #e5e7eb;
+  background-color: rgb(var(--background));
   transition: opacity 200ms ease-in-out;
 
   @media (min-width: 640px) {
@@ -69,17 +67,17 @@
 
 .content {
   display: flex;
-  padding: 1rem;
-  margin-top: 0.5rem;
+  padding: var(--size-4);
+  margin-top: var(--size-2);
   flex-direction: column;
   flex: 1 1 0%;
 }
 
 .header {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-  color: #111827;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgb(var(--foreground));
 
   a {
     color: inherit;
@@ -103,14 +101,14 @@
 }
 
 .price {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 500;
-  color: #111827;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  font-weight: var(--font-weight-medium);
+  color: rgb(var(--foreground));
 }
 
 .designer {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #6b7280;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  color: rgb(var(--muted-foreground));
 }
