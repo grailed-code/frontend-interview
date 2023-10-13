@@ -27,9 +27,6 @@ function ShopPage() {
   return (
     <main>
       <Header />
-      <Modal isOpen handleClose={() => null}>
-        {products ? <ProductPreview product={products[0]} /> : null}
-      </Modal>
       <section className={styles.content}>
         {filters ? <Filters filterOptions={filters} /> : null}
         <div className={styles.products}>
