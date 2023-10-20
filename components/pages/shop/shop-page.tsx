@@ -2,17 +2,15 @@ import { useEffect, useState } from 'react';
 
 import { Product, ProductsResponseData } from '@/types';
 import { getProducts } from '@/lib/products';
-import Modal from '@/components/ui/modal';
 
 import Filters from './components/filters';
 import Header from './components/header';
 import Products from './components/products';
 
 import styles from './shop-page.module.scss';
-import ProductPreview from './components/product-preview';
 
 function ShopPage() {
-  const [products, setProducts] = useState<Product[]>();
+  const [products, setProducts] = useState<Product[]>([]);
   const [filters, setFilters] =
     useState<ProductsResponseData['filters']>();
 

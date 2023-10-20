@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { X, XIcon } from 'lucide-react';
+import { X } from 'lucide-react';
 
 import ReactPortal from '@/components/ui/react-portal';
 
@@ -29,7 +29,7 @@ function Modal({ children, isOpen, handleClose }: ModalProps) {
       <div className={styles.container} ref={nodeRef}>
         <div className={styles.content}>
           <button onClick={handleClose} className={styles.closeBtn}>
-            <X size={24} />
+            <X data-testid="close-button" size={24} />
           </button>
           {children}
         </div>

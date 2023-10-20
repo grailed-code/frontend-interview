@@ -10,20 +10,23 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  width: 100vw;
 }
 
 .content {
   position: relative;
-  padding-top: var(--size-8);
-  padding-bottom: var(--size-8);
-  padding-left: var(--size-6);
+  padding-top: var(--size-10);
+  padding-bottom: var(--size-10);
+  padding-left: var(--size-8);
   padding-right: var(--size-6);
   background-color: rgb(var(--background));
   color: rgb(var(--foreground));
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  min-height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: auto;
 
   @media (min-width: 768px) {
     max-width: 42rem;
@@ -35,8 +38,8 @@
 .closeBtn {
   cursor: pointer;
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 1rem;
+  right: 1rem;
   background-color: transparent;
   color: rgb(var(--muted-foreground));
   @media (min-width: 768px) {
