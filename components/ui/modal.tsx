@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { X } from 'lucide-react';
 
 import ReactPortal from '@/components/ui/react-portal';
@@ -13,14 +13,6 @@ type ModalProps = {
 
 function Modal({ children, isOpen, handleClose }: ModalProps) {
   const nodeRef = useRef(null);
-  useEffect(() => {
-    const closeOnEscapeKey = (e: KeyboardEvent) =>
-      e.key === 'Escape' ? handleClose() : null;
-    document.body.addEventListener('keydown', closeOnEscapeKey);
-    return () => {
-      document.body.removeEventListener('keydown', closeOnEscapeKey);
-    };
-  }, [handleClose]);
 
   if (!isOpen) return null;
 

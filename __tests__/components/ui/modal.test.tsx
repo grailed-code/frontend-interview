@@ -38,18 +38,4 @@ describe('Modal component', () => {
 
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
-
-  it('calls handleClose when Escape key is pressed', () => {
-    const handleClose = jest.fn();
-
-    render(
-      <Modal isOpen={true} handleClose={handleClose}>
-        <div>Modal Content</div>
-      </Modal>
-    );
-
-    fireEvent.keyDown(document.body, { key: 'Escape' });
-
-    expect(handleClose).toHaveBeenCalledTimes(1);
-  });
 });
