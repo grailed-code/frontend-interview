@@ -1,10 +1,13 @@
-import { Product } from "@/types";
+import Link from 'next/link';
 
-import styles from "./products.module.scss";
+import { Product } from '@/types';
+
+import styles from './products.module.scss';
 
 type ProductProps = {
   product: Product;
 };
+
 function Product({ product }: ProductProps) {
   return (
     <div className={styles.product}>
@@ -36,7 +39,9 @@ function Products({ products }: ProductsProps) {
     <section className={styles.container}>
       <div className={styles.products}>
         {products.map((product) => (
-          <Product key={product.id} product={product} />
+          <Link href={`/products/${product.id}`} key={product.id}>
+            <Product key={product.id} product={product} />
+          </Link>
         ))}
       </div>
     </section>

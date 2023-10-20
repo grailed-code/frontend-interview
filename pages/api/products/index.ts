@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { generateFakeProduct } from "@/lib/utils/generateFakeProduct";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { generateFakeProduct } from '@/lib/utils/generateFakeProduct';
 
-import { Sort, Category, ProductsResponseData } from "@/types";
-import { products as rawProducts } from "@/data";
+import { Sort, Category, ProductsResponseData } from '@/types';
+import { products as rawProducts } from '@/data';
 
-const products = rawProducts
+export const products = rawProducts
   .filter((p) => p.image)
   .map((p) => ({
     ...p,
@@ -13,11 +13,19 @@ const products = rawProducts
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ProductsResponseData>,
+  res: NextApiResponse<ProductsResponseData>
 ) {
   const { query } = req;
-  const { sort, limit, page, category, color, designer, size, condition } =
-    query;
+  const {
+    sort,
+    limit,
+    page,
+    category,
+    color,
+    designer,
+    size,
+    condition,
+  } = query;
 
   let pageSize = 160;
 
@@ -33,7 +41,7 @@ export default function handler(
 
   const results = products.filter((x) => {
     if (category) {
-      if (typeof category === "string" && x.category !== category) {
+      if (typeof category === 'string' && x.category !== category) {
         return false;
       }
       if (!category.includes(x.category)) {
@@ -42,7 +50,7 @@ export default function handler(
     }
 
     if (color) {
-      if (typeof color === "string" && x.color !== color) {
+      if (typeof color === 'string' && x.color !== color) {
         return false;
       }
       if (!color.includes(x.color)) {
@@ -51,7 +59,7 @@ export default function handler(
     }
 
     if (designer) {
-      if (typeof designer === "string" && x.designer !== designer) {
+      if (typeof designer === 'string' && x.designer !== designer) {
         return false;
       }
       if (!designer.includes(x.designer)) {
@@ -60,7 +68,7 @@ export default function handler(
     }
 
     if (size) {
-      if (typeof size === "string" && x.size !== size) {
+      if (typeof size === 'string' && x.size !== size) {
         return false;
       }
       if (!size.includes(x.size)) {
@@ -69,7 +77,10 @@ export default function handler(
     }
 
     if (condition) {
-      if (typeof condition === "string" && x.condition !== condition) {
+      if (
+        typeof condition === 'string' &&
+        x.condition !== condition
+      ) {
         return false;
       }
       if (!condition.includes(x.condition)) {
@@ -79,32 +90,33 @@ export default function handler(
     return true;
   });
 
-  let selectedSort: Sort = "popular";
+  let selectedSort: Sort = 'popular';
 
   const sortedResults = results.sort((a, b) => {
-    if (!sort || typeof sort !== "string" || sort === "popular") {
+    if (!sort || typeof sort !== 'string' || sort === 'popular') {
       return b.popularity - a.popularity;
     }
 
-    if (sort === "rating") {
-      selectedSort = "rating";
+    if (sort === 'rating') {
+      selectedSort = 'rating';
       return b.rating - a.rating;
     }
 
-    if (sort === "created") {
-      selectedSort = "created";
+    if (sort === 'created') {
+      selectedSort = 'created';
       return (
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        new Date(b.created_at).getTime() -
+        new Date(a.created_at).getTime()
       );
     }
 
-    if (sort === "priceAsc") {
-      selectedSort = "priceAsc";
+    if (sort === 'priceAsc') {
+      selectedSort = 'priceAsc';
       return a.price - b.price;
     }
 
-    if (sort === "priceDesc") {
-      selectedSort = "priceDesc";
+    if (sort === 'priceDesc') {
+      selectedSort = 'priceDesc';
       return b.price - a.price;
     }
     return b.popularity - a.popularity;
@@ -112,7 +124,7 @@ export default function handler(
 
   const paginatedResults = sortedResults.slice(
     pageSize * (pageNum - 1),
-    pageSize,
+    pageSize
   );
 
   res.status(200).json({
