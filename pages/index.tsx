@@ -1,10 +1,5 @@
-export default function Home() {
-  return <div>Welcome to Faux</div>;
-}
+import HomePage from '../components/pages/home';
 
-export const getServerSideProps = () => ({
-  redirect: {
-    destination: '/shop',
-    permanent: false,
-  },
-});
+export default function Home() {
+  return <HomePage />;
+}
