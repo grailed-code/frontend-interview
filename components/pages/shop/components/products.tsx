@@ -10,16 +10,14 @@ type ProductProps = {
 
 function Product({ product }: ProductProps) {
   return (
-    <div className={styles.product}>
+    <div className={styles.product} data-testid="product">
       <div className={styles.image}>
         <img src={product.image} alt={product.title} />
       </div>
       <div className={styles.content}>
         <h3 className={styles.header}>
-          <a href="#">
-            <span aria-hidden="true" />
-            {product.title}
-          </a>
+          <span aria-hidden="true" />
+          {product.title}
         </h3>
         <p className={styles.designer}>{product.designer}</p>
         <div className={styles.details}>
